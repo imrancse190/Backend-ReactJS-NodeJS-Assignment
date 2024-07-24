@@ -1,0 +1,121 @@
+const pool = require("../db");
+
+const getAllHotels = async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT address,images,host_information,slug FROM hotels"
+    );
+    res.status(200).json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Hotel Controllers
+const createHotel = async (req, res) => {
+  const {
+    slug,
+    images,
+    title,
+    description,
+    guest_count,
+    bedroom_count,
+    bathroom_count,
+    amenities,
+    host_information,
+    address,
+    latitude,
+    longitude,
+  } = req.body;
+  try {
+    const query =
+      "INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)";
+    const values = [
+      slug,
+      images,
+      title,
+      description,
+      guest_count,
+      bedroom_count,
+      bathroom_count,
+      amenities,
+      host_information,
+      address,
+      latitude,
+      longitude,
+    ];
+    await pool.query(query, values);
+    res.status(201).json({ message: "Hotel created successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getHotel = async (req, res) => {
+  const { slug } = req.params;
+  try {
+    const result = await pool.query("SELECT * FROM hotels WHERE slug = $1", [
+      slug,
+    ]);
+    res.status(200).json(result.rows[0]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateHotel = async (req, res) => {
+  const { slug } = req.params;
+  const {
+    images,
+    title,
+    description,
+    guest_count,
+    bedroom_count,
+    bathroom_count,
+    amenities,
+    host_information,
+    address,
+    latitude,
+    longitude,
+  } = req.body;
+  try {
+    const query =
+      "UPDATE hotels SET images = $1, title = $2, description = $3, guest_count = $4, bedroom_count = $5, bathroom_count = $6, amenities = $7, host_information = $8, address = $9, latitude = $10, longitude = $11 WHERE slug = $12";
+    const values = [
+      images,
+      title,
+      description,
+      guest_count,
+      bedroom_count,
+      bathroom_count,
+      amenities,
+      host_information,
+      address,
+      latitude,
+      longitude,
+      slug,
+    ];
+    await pool.query(query, values);
+    res.status(200).json({ message: "Hotel updated successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const deleteHotel = async (req, res) => {
+  const { slug } = req.params;
+  try {
+    await pool.query("DELETE FROM hotels WHERE slug = $1", [slug]);
+    res.status(200).json({ message: "Hotel deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  getAllHotels,
+  createHotel,
+  getHotel,
+  updateHotel,
+  deleteHotel,
+};
