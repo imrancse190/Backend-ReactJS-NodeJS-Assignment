@@ -21,6 +21,20 @@ const createRoom = async (req, res) => {
   }
 };
 
+const getHotelRooms = async (req, res) => {
+  const { hotel_slug } = req.params;
+  try {
+    const result = await pool.query(
+      "SELECT * FROM rooms WHERE hotel_slug = $1",
+      [hotel_slug]
+    );
+
+    res.status(200).json(result.rows);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 const getRoom = async (req, res) => {
   const { hotel_slug, room_slug } = req.params;
   try {
@@ -72,4 +86,5 @@ module.exports = {
   getRoom,
   updateRoom,
   deleteRoom,
+  getHotelRooms,
 };

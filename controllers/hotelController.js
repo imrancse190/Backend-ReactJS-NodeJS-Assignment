@@ -5,13 +5,16 @@ const getAllHotels = async (req, res) => {
     const result = await pool.query(
       "SELECT address,images,host_information,slug FROM hotels"
     );
-    res.status(200).json(result.rows);
+    if (result.rows.length) {
+      res.status(200).json(result.rows);
+    } else {
+      throw "Item not found";
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// Hotel Controllers
 const createHotel = async (req, res) => {
   const {
     slug,
@@ -57,7 +60,12 @@ const getHotel = async (req, res) => {
     const result = await pool.query("SELECT * FROM hotels WHERE slug = $1", [
       slug,
     ]);
-    res.status(200).json(result.rows[0]);
+
+    if (result.rows.length) {
+      res.status(200).json(result.rows[0]);
+    } else {
+      throw "Item not found";
+    }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

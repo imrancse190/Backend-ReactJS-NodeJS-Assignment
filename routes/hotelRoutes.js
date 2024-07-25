@@ -12,6 +12,7 @@ router.delete("/:slug", hotelController.deleteHotel);
 
 // Room routes
 router.post("/:hotel_slug/room", roomController.createRoom);
+router.get("/:hotel_slug/room", roomController.getHotelRooms);
 router.get("/:hotel_slug/room/:room_slug", roomController.getRoom);
 router.put("/:hotel_slug/room/:room_slug", roomController.updateRoom);
 router.delete("/:hotel_slug/room/:room_slug", roomController.deleteRoom);
