@@ -22,8 +22,8 @@ Follow these instructions to set up and run the project on your local machine.
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14.x or later)
-- [PostgreSQL](https://www.postgresql.org/) (v12.x or later)
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ## Installation
 
@@ -48,7 +48,7 @@ Follow these instructions to set up and run the project on your local machine.
      CREATE DATABASE hotel_management;
      ```
 
-   - Update the database configuration in `controllers/hotelController.js`:
+   - Update the database configuration in `db.js`:
 
      ```javascript
      const pool = new Pool({
@@ -108,7 +108,7 @@ Follow these instructions to set up and run the project on your local machine.
   - **URL:** `POST /hotel`
   - **Body:**
 
-    - Note: I have chosen to use image names rather than full image URLs. Detecting and managing separate URLs for each image when posting data from the backend is challenging. If I get the opportunity to handle data posting from the frontend, I will definitely address this. If I am mistaken in my approach, I would be grateful to learn the proper method.
+    - Note: I have chosen to use image names rather than full image URLs. Detecting and managing separate URLs for each image when posting data from the backend/postman is challenging. If I get the opportunity to handle data posting from the frontend, I will definitely address this. If I am mistaken in my approach, I would be grateful to learn the proper method.
 
     ```json
     {
@@ -127,7 +127,7 @@ Follow these instructions to set up and run the project on your local machine.
     }
     ```
 
-- **Get all hotel**
+- **Get all hotels**
 
   - **URL:** `GET /hotel/`
   - **Response:**

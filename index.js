@@ -12,7 +12,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-app.use("/api/hotel", hotelRoutes);
+app.use("/hotel", hotelRoutes);
 // If any route not match then this will work.
 app.use((req, res, next) => {
   res.status(404).json({ message: "Route not found" });
