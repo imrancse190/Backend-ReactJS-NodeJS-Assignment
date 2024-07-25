@@ -30,7 +30,7 @@ Follow these instructions to set up and run the project on your local machine.
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/your-username/hotel-management-backend.git
+   git clone https://github.com/imrancse190/hotel-management-backend.git
    cd hotel-management-backend
    ```
 
@@ -125,6 +125,47 @@ Follow these instructions to set up and run the project on your local machine.
       "latitude": 40.7128,
       "longitude": -74.006
     }
+    ```
+
+- **Get all hotel**
+
+  - **URL:** `GET /hotel/`
+  - **Response:**
+    ```json
+    [
+      {
+        "address": "456 Elm St, Townsville, Country",
+        "images": [
+          "bedroom1.jpg",
+          "bedroom2.jpg",
+          "bedroom3.jpg",
+          "bedroom4.jpg",
+          "bedroom5.jpg",
+          "bedroom6.jpg",
+          "bedroom7.jpg",
+          "bedroom8.jpg",
+          "bedroom9.jpg"
+        ],
+        "host_information": "Jane Smith, +0987654321, jane.smith@example.com",
+        "slug": "budget-inn"
+      },
+      {
+        "address": "789 Ocean Drive, Beach City, Country",
+        "images": [
+          "bedroom1.jpg",
+          "bedroom2.jpg",
+          "bedroom3.jpg",
+          "bedroom4.jpg",
+          "bedroom5.jpg",
+          "bedroom6.jpg",
+          "bedroom7.jpg",
+          "bedroom8.jpg",
+          "bedroom9.jpg"
+        ],
+        "host_information": "Carlos Gomez, +1122334455, carlos.gomez@example.com",
+        "slug": "luxury-resort"
+      }
+    ]
     ```
 
 - **Get a hotel**
