@@ -1,4 +1,5 @@
 const pool = require("../db");
+const slugify = require("slugify");
 
 const getAllHotels = async (req, res) => {
   try {
@@ -17,7 +18,6 @@ const getAllHotels = async (req, res) => {
 
 const createHotel = async (req, res) => {
   const {
-    slug,
     images,
     title,
     description,
@@ -30,6 +30,23 @@ const createHotel = async (req, res) => {
     latitude,
     longitude,
   } = req.body;
+
+  let slug = slugify(title, { lower: true, strict: true });
+
+  // Ensure the slug is unique
+  const existingSlugs = await pool.query(
+    "SELECT slug FROM hotels WHERE slug LIKE $1",
+    [`${slug}%`]
+  );
+  if (existingSlugs.rowCount > 0) {
+    const slugSet = new Set(existingSlugs.rows.map((row) => row.slug));
+    let counter = 1;
+    while (slugSet.has(`${slug}-${counter}`)) {
+      counter++;
+    }
+    slug = `${slug}-${counter}`;
+  }
+
   try {
     const query =
       "INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)";

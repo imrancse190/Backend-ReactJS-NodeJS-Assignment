@@ -3,8 +3,29 @@ const pool = require("../db");
 // Room Controllers
 const createRoom = async (req, res) => {
   const { hotel_slug } = req.params;
-  const { room_slug, room_image, room_title, bedroom_count } = req.body;
+  const { room_image, room_title, bedroom_count } = req.body;
+
+  if (!hotel_slug || !room_image || !room_title || !bedroom_count) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
   try {
+    let room_slug = slugify(room_title, { lower: true, strict: true });
+
+    // Ensure the slug is unique
+    const existingSlugs = await pool.query(
+      "SELECT room_slug FROM rooms WHERE room_slug LIKE $1",
+      [`${room_slug}%`]
+    );
+    if (existingSlugs.rowCount > 0) {
+      const slugSet = new Set(existingSlugs.rows.map((row) => row.room_slug));
+      let counter = 1;
+      while (slugSet.has(`${room_slug}-${counter}`)) {
+        counter++;
+      }
+      room_slug = `${room_slug}-${counter}`;
+    }
+
     const query =
       "INSERT INTO rooms (hotel_slug, room_slug, room_image, room_title, bedroom_count) VALUES ($1, $2, $3, $4, $5)";
     const values = [
@@ -15,7 +36,7 @@ const createRoom = async (req, res) => {
       bedroom_count,
     ];
     await pool.query(query, values);
-    res.status(201).json({ message: "Room created successfully" });
+    res.status(201).json({ message: "Room created successfully", room_slug });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
