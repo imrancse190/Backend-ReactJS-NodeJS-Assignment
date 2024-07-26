@@ -112,7 +112,6 @@ Follow these instructions to set up and run the project on your local machine.
 
     ```json
     {
-      "slug": "redisson-blu",
       "images": ["bedroom3.jpg", "bedroom4.jpg"],
       "title": "Redisson Blu Hotel",
       "description": "A luxurious stay in the heart of the city.",
@@ -222,7 +221,6 @@ Follow these instructions to set up and run the project on your local machine.
   - **Body:**
     ```json
     {
-      "room_slug": "room-1",
       "room_image": "room1.jpg",
       "room_title": "Deluxe Room",
       "bedroom_count": 1
@@ -238,7 +236,6 @@ Follow these instructions to set up and run the project on your local machine.
       "status": 200,
       "data": {
         "hotel_slug": "redisson-blu",
-        "room_slug": "room-1",
         "room_image": "room1.jpg",
         "room_title": "Deluxe Room",
         "bedroom_count": 1
