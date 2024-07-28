@@ -17,6 +17,8 @@ const { Pool } = require("pg");
 //   password: process.env.PASSWORD,
 //   port: process.env.PORTDB,
 // });
+
+// I try with env file. But if I use env then data is not fetch. I try but did not find out the problem.
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
