@@ -365,8 +365,6 @@ CREATE TABLE rooms (
 
 ## Additional Information
 
-- **Environment Variables:** Ensure you set up environment variables for database credentials and other sensitive information.
 - **Error Handling:** Proper error handling is implemented to ensure the API responds with appropriate error messages.
-- **Validation:** Input validation is performed to ensure data integrity.
 
 Feel free to customize this README file further based on your project's specific requirements and additional features.
