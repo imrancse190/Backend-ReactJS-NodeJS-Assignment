@@ -110,21 +110,37 @@ Follow these instructions to set up and run the project on your local machine.
 
     - Note: I have chosen to use image names rather than full image URLs. Detecting and managing separate URLs for each image when posting data from the backend/postman is challenging. If I get the opportunity to handle data posting from the frontend, I will definitely address this. If I am mistaken in my approach, I would be grateful to learn the proper method.
 
-    ```json
+  ```json
+  {
+    "images": ["./assets/images/bedroom3.jpg", "./assets/images/bedroom2.jpg","./assets/images/bedroom1.jpg","./assets/images/bedroom5.jpg","./assets/images/bedroom6.jpg","./assets/images/bedroom4.jpg","./assets/images/bedroom7.jpg","./assets/images/bedroom9.jpg","./assets/images/bedroom8.jpg"],
+    "title": "Grand Plaza Hotel",
+    "description": "Experience the grandeur of the city with a luxurious stay at the Grand Plaza Hotel. Perfect for business and leisure travelers.",
+    "guest_count": 3,
+    "bedroom_count": 1,
+    "bathroom_count": 1,
+    "amenities": ["Free WiFi", "Breakfast included", "Gym"],
+    "host_information": "Alice Smith, +1987654321, alice.smith@example.com",
+    "address": "456 Elm St, Townsville, Country",
+    "latitude": 34.0522,
+    "longitude": -118.2437
+  }
+  ```
+
+  ```json
     {
-      "images": ["bedroom3.jpg", "bedroom4.jpg"],
-      "title": "Redisson Blu Hotel",
-      "description": "A luxurious stay in the heart of the city.",
-      "guest_count": 4,
-      "bedroom_count": 2,
-      "bathroom_count": 1,
-      "amenities": ["Free WiFi", "Breakfast included", "Swimming Pool"],
-      "host_information": "John Doe, +1234567890, john.doe@example.com",
-      "address": "123 Main St, Cityville, Country",
-      "latitude": 40.7128,
-      "longitude": -74.006
+      "images": ["./assets/images/bedroom5.jpg", "./assets/images/bedroom1.jpg","./assets/images/bedroom2.jpg","./assets/images/bedroom3.jpg","./assets/images/bedroom9.jpg","./assets/images/bedroom7.jpg","./assets/images/bedroom4.jpg","./assets/images/bedroom8.jpg","./assets/images/bedroom6.jpg"],
+      "title": "Ocean View Resort",
+      "description": "Relax and unwind at the Ocean View Resort. Enjoy stunning sea views, top-notch amenities, and unparalleled service.",
+      "guest_count": 5,
+      "bedroom_count": 3,
+      "bathroom_count": 2,
+      "amenities": ["Free WiFi", "Sea View", "Spa"],
+      "host_information": "Bob Johnson, +1098765432, bob.johnson@example.com",
+      "address": "789 Sea Rd, Beachside, Country",
+      "latitude": 36.1699,
+      "longitude": -115.1398
     }
-    ```
+  ```
 
 - **Get all hotels**
 
@@ -133,36 +149,36 @@ Follow these instructions to set up and run the project on your local machine.
     ```json
     [
       {
-        "address": "456 Elm St, Townsville, Country",
+        "address": "123 Main St, Cityville, Country",
         "images": [
-          "bedroom1.jpg",
-          "bedroom2.jpg",
-          "bedroom3.jpg",
-          "bedroom4.jpg",
-          "bedroom5.jpg",
-          "bedroom6.jpg",
-          "bedroom7.jpg",
-          "bedroom8.jpg",
-          "bedroom9.jpg"
+          "./assets/images/bedroom1.jpg",
+          "./assets/images/bedroom2.jpg",
+          "./assets/images/bedroom3.jpg",
+          "./assets/images/bedroom4.jpg",
+          "./assets/images/bedroom5.jpg",
+          "./assets/images/bedroom6.jpg",
+          "./assets/images/bedroom7.jpg",
+          "./assets/images/bedroom8.jpg",
+          "./assets/images/bedroom9.jpg"
         ],
-        "host_information": "Jane Smith, +0987654321, jane.smith@example.com",
-        "slug": "budget-inn"
+        "host_information": "John Doe, +1234567890, john.doe@example.com",
+        "slug": "redisson-blu-hotel-1"
       },
       {
-        "address": "789 Ocean Drive, Beach City, Country",
+        "address": "456 Elm St, Townsville, Country",
         "images": [
-          "bedroom1.jpg",
-          "bedroom2.jpg",
-          "bedroom3.jpg",
-          "bedroom4.jpg",
-          "bedroom5.jpg",
-          "bedroom6.jpg",
-          "bedroom7.jpg",
-          "bedroom8.jpg",
-          "bedroom9.jpg"
+          "./assets/images/bedroom3.jpg",
+          "./assets/images/bedroom2.jpg",
+          "./assets/images/bedroom1.jpg",
+          "./assets/images/bedroom5.jpg",
+          "./assets/images/bedroom6.jpg",
+          "./assets/images/bedroom4.jpg",
+          "./assets/images/bedroom7.jpg",
+          "./assets/images/bedroom9.jpg",
+          "./assets/images/bedroom8.jpg"
         ],
-        "host_information": "Carlos Gomez, +1122334455, carlos.gomez@example.com",
-        "slug": "luxury-resort"
+        "host_information": "Alice Smith, +1987654321, alice.smith@example.com",
+        "slug": "grand-plaza-hotel"
       }
     ]
     ```
@@ -175,18 +191,22 @@ Follow these instructions to set up and run the project on your local machine.
     {
       "status": 200,
       "data": {
-        "slug": "redisson-blu",
-        "images": ["bedroom3.jpg", "bedroom4.jpg"],
-        "title": "Redisson Blu Hotel",
-        "description": "A luxurious stay in the heart of the city.",
-        "guest_count": 4,
-        "bedroom_count": 2,
-        "bathroom_count": 1,
-        "amenities": ["Free WiFi", "Breakfast included", "Swimming Pool"],
-        "host_information": "John Doe, +1234567890, john.doe@example.com",
-        "address": "123 Main St, Cityville, Country",
-        "latitude": 40.7128,
-        "longitude": -74.006
+         {
+          "address": "123 Main St, Cityville, Country",
+          "images": [
+            "./assets/images/bedroom1.jpg",
+            "./assets/images/bedroom2.jpg",
+            "./assets/images/bedroom3.jpg",
+            "./assets/images/bedroom4.jpg",
+            "./assets/images/bedroom5.jpg",
+            "./assets/images/bedroom6.jpg",
+            "./assets/images/bedroom7.jpg",
+            "./assets/images/bedroom8.jpg",
+            "./assets/images/bedroom9.jpg"
+          ],
+          "host_information": "John Doe, +1234567890, john.doe@example.com",
+          "slug": "redisson-blu-hotel-1"
+        }
       }
     }
     ```

@@ -4,7 +4,7 @@ const slugify = require("slugify");
 const getAllHotels = async (req, res) => {
   try {
     const result = await pool.query(
-      "SELECT address,images,host_information,slug FROM hotels"
+      "SELECT address,images,host_information,slug,images FROM hotels"
     );
     if (result.rows.length) {
       res.status(200).json(result.rows);
@@ -91,21 +91,21 @@ const getHotel = async (req, res) => {
 
 const updateHotel = async (req, res) => {
   try {
-  const { slug } = req.params;
-  const {
-    images,
-    title,
-    description,
-    guest_count,
-    bedroom_count,
-    bathroom_count,
-    amenities,
-    host_information,
-    address,
-    latitude,
-    longitude,
-  } = req.body;
-  
+    const { slug } = req.params;
+    const {
+      images,
+      title,
+      description,
+      guest_count,
+      bedroom_count,
+      bathroom_count,
+      amenities,
+      host_information,
+      address,
+      latitude,
+      longitude,
+    } = req.body;
+
     const query =
       "UPDATE hotels SET images = $1, title = $2, description = $3, guest_count = $4, bedroom_count = $5, bathroom_count = $6, amenities = $7, host_information = $8, address = $9, latitude = $10, longitude = $11 WHERE slug = $12";
     const values = [
