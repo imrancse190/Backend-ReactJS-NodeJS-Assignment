@@ -17,37 +17,38 @@ const getAllHotels = async (req, res) => {
 };
 
 const createHotel = async (req, res) => {
-  const {
-    images,
-    title,
-    description,
-    guest_count,
-    bedroom_count,
-    bathroom_count,
-    amenities,
-    host_information,
-    address,
-    latitude,
-    longitude,
-  } = req.body;
-
-  let slug = slugify(title, { lower: true, strict: true });
-
-  // Ensure the slug is unique
-  const existingSlugs = await pool.query(
-    "SELECT slug FROM hotels WHERE slug LIKE $1",
-    [`${slug}%`]
-  );
-  if (existingSlugs.rowCount > 0) {
-    const slugSet = new Set(existingSlugs.rows.map((row) => row.slug));
-    let counter = 1;
-    while (slugSet.has(`${slug}-${counter}`)) {
-      counter++;
-    }
-    slug = `${slug}-${counter}`;
-  }
-
   try {
+    const {
+      images,
+      title,
+      description,
+      guest_count,
+      bedroom_count,
+      bathroom_count,
+      amenities,
+      host_information,
+      address,
+      latitude,
+      longitude,
+    } = req.body;
+
+    let slug = slugify(title, { lower: true, strict: true });
+
+    // Ensure the slug is unique
+    const existingSlugs = await pool.query(
+      "SELECT slug FROM hotels WHERE slug LIKE $1",
+      [`${slug}%`]
+    );
+    if (existingSlugs.rowCount > 0) {
+      const slugSet = new Set(existingSlugs.rows.map((row) => row.slug));
+      let counter = 1;
+      while (slugSet.has(`${slug}-${counter}`)) {
+        counter++;
+      }
+      slug = `${slug}-${counter}`;
+    }
+
+
     const query =
       "INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)";
     const values = [
@@ -89,6 +90,7 @@ const getHotel = async (req, res) => {
 };
 
 const updateHotel = async (req, res) => {
+  try {
   const { slug } = req.params;
   const {
     images,
@@ -103,7 +105,7 @@ const updateHotel = async (req, res) => {
     latitude,
     longitude,
   } = req.body;
-  try {
+  
     const query =
       "UPDATE hotels SET images = $1, title = $2, description = $3, guest_count = $4, bedroom_count = $5, bathroom_count = $6, amenities = $7, host_information = $8, address = $9, latitude = $10, longitude = $11 WHERE slug = $12";
     const values = [
