@@ -1,6 +1,6 @@
-# Hotel Management System Backend
+Here's a detailed README file for your Hotel Management System backend project:
 
-## Assignment on NodeJS, ReactJS, PostgresSQL
+# Hotel Management System Backend
 
 This project is a backend application for managing hotel and room details using Node.js, Express.js, and PostgreSQL.
 
@@ -108,44 +108,45 @@ Follow these instructions to set up and run the project on your local machine.
   - **URL:** `POST /hotel`
   - **Body:**
 
-    - Note: I have chosen to use image names rather than full image URLs. Detecting and managing separate URLs for each image when posting data from the backend/postman is challenging. If I get the opportunity to handle data posting from the frontend, I will definitely address this. If I am mistaken in my approach, I would be grateful to learn the proper method.
-
-  ```json
-  {
-    "images": ["./assets/images/bedroom3.jpg", "./assets/images/bedroom2.jpg","./assets/images/bedroom1.jpg","./assets/images/bedroom5.jpg","./assets/images/bedroom6.jpg","./assets/images/bedroom4.jpg","./assets/images/bedroom7.jpg","./assets/images/bedroom9.jpg","./assets/images/bedroom8.jpg"],
-    "title": "Grand Plaza Hotel",
-    "description": "Experience the grandeur of the city with a luxurious stay at the Grand Plaza Hotel. Perfect for business and leisure travelers.",
-    "guest_count": 3,
-    "bedroom_count": 1,
-    "bathroom_count": 1,
-    "amenities": ["Free WiFi", "Breakfast included", "Gym"],
-    "host_information": "Alice Smith, +1987654321, alice.smith@example.com",
-    "address": "456 Elm St, Townsville, Country",
-    "latitude": 34.0522,
-    "longitude": -118.2437
-  }
-  ```
-
-  ```json
+    ```json
     {
-      "images": ["./assets/images/bedroom5.jpg", "./assets/images/bedroom1.jpg","./assets/images/bedroom2.jpg","./assets/images/bedroom3.jpg","./assets/images/bedroom9.jpg","./assets/images/bedroom7.jpg","./assets/images/bedroom4.jpg","./assets/images/bedroom8.jpg","./assets/images/bedroom6.jpg"],
-      "title": "Ocean View Resort",
-      "description": "Relax and unwind at the Ocean View Resort. Enjoy stunning sea views, top-notch amenities, and unparalleled service.",
-      "guest_count": 5,
-      "bedroom_count": 3,
-      "bathroom_count": 2,
-      "amenities": ["Free WiFi", "Sea View", "Spa"],
-      "host_information": "Bob Johnson, +1098765432, bob.johnson@example.com",
-      "address": "789 Sea Rd, Beachside, Country",
-      "latitude": 36.1699,
-      "longitude": -115.1398
+      "images": [
+        "./assets/images/bedroom3.jpg",
+        "./assets/images/bedroom2.jpg",
+        "./assets/images/bedroom1.jpg",
+        "./assets/images/bedroom5.jpg",
+        "./assets/images/bedroom6.jpg",
+        "./assets/images/bedroom4.jpg",
+        "./assets/images/bedroom7.jpg",
+        "./assets/images/bedroom9.jpg",
+        "./assets/images/bedroom8.jpg"
+      ],
+      "title": "Grand Plaza Hotel",
+      "description": "Experience the grandeur of the city with a luxurious stay at the Grand Plaza Hotel. Perfect for business and leisure travelers.",
+      "guest_count": 3,
+      "bedroom_count": 1,
+      "bathroom_count": 1,
+      "amenities": ["Free WiFi", "Breakfast included", "Gym"],
+      "host_information": "Alice Smith, +1987654321, alice.smith@example.com",
+      "address": "456 Elm St, Townsville, Country",
+      "latitude": 34.0522,
+      "longitude": -118.2437
     }
-  ```
+    ```
+
+  - **Response:**
+
+    ```json
+    {
+      "message": "Hotel created successfully"
+    }
+    ```
 
 - **Get all hotels**
 
   - **URL:** `GET /hotel/`
   - **Response:**
+
     ```json
     [
       {
@@ -187,27 +188,31 @@ Follow these instructions to set up and run the project on your local machine.
 
   - **URL:** `GET /hotel/:slug`
   - **Response:**
+
     ```json
     {
-      "status": 200,
-      "data": {
-         {
-          "address": "123 Main St, Cityville, Country",
-          "images": [
-            "./assets/images/bedroom1.jpg",
-            "./assets/images/bedroom2.jpg",
-            "./assets/images/bedroom3.jpg",
-            "./assets/images/bedroom4.jpg",
-            "./assets/images/bedroom5.jpg",
-            "./assets/images/bedroom6.jpg",
-            "./assets/images/bedroom7.jpg",
-            "./assets/images/bedroom8.jpg",
-            "./assets/images/bedroom9.jpg"
-          ],
-          "host_information": "John Doe, +1234567890, john.doe@example.com",
-          "slug": "redisson-blu-hotel-1"
-        }
-      }
+      "slug": "mountain-retreat",
+      "images": [
+        "./assets/images/bedroom7.jpg",
+        "./assets/images/bedroom4.jpg",
+        "./assets/images/bedroom8.jpg",
+        "./assets/images/bedroom1.jpg",
+        "./assets/images/bedroom2.jpg",
+        "./assets/images/bedroom6.jpg",
+        "./assets/images/bedroom3.jpg",
+        "./assets/images/bedroom9.jpg",
+        "./assets/images/bedroom5.jpg"
+      ],
+      "title": "Mountain Retreat",
+      "description": "Escape to the tranquility of the mountains at our cozy Mountain Retreat. Perfect for nature lovers and adventure seekers.",
+      "guest_count": 6,
+      "bedroom_count": 4,
+      "bathroom_count": 2,
+      "amenities": ["Free WiFi", "Mountain View", "Hiking Trails"],
+      "host_information": "Charlie Brown, +154367890, charlie.brown@example.com",
+      "address": "101 Pine St, Mountainville, Country",
+      "latitude": 37.7749,
+      "longitude": -122.4194
     }
     ```
 
@@ -216,19 +221,20 @@ Follow these instructions to set up and run the project on your local machine.
   - **URL:** `PUT /hotel/:slug`
   - **Body:** (similar to create)
   - **Response:**
+
     ```json
     {
-      "status": 200,
       "message": "Hotel updated successfully"
     }
     ```
 
 - **Delete a hotel**
+
   - **URL:** `DELETE /hotel/:slug`
   - **Response:**
+
     ```json
     {
-      "status": 200,
       "message": "Hotel deleted successfully"
     }
     ```
@@ -239,27 +245,60 @@ Follow these instructions to set up and run the project on your local machine.
 
   - **URL:** `POST /hotel/:hotel_slug/room`
   - **Body:**
+
     ```json
     {
-      "room_image": "room1.jpg",
+      "room_image": "./assets/images/bedroom3.jpg",
       "room_title": "Deluxe Room",
       "bedroom_count": 1
     }
+    ```
+
+  - **Response:**
+
+    ```json
+    {
+      "message": "Room created successfully",
+      "room_slug": "deluxe-room"
+    }
+    ```
+
+- **Get all rooms of a hotel**
+
+  - **URL:** `GET /hotel/:hotel_slug/room`
+  - **Response:**
+
+    ```json
+    [
+      {
+        "hotel_slug": "redisson-blu",
+        "room_slug": "deluxe-room",
+        "room_image": "r./assets/images/bedroom3.jpg",
+        "room_title": "Deluxe Room",
+        "bedroom_count": 1
+      },
+      {
+        "hotel_slug": "redisson-blu",
+        "room_slug": "suite-room",
+        "room_image": "./assets/images/bedroom8.jpg",
+        "room_title": "Suite Room",
+        "bedroom_count": 2
+      }
+    ]
     ```
 
 - **Get a room**
 
   - **URL:** `GET /hotel/:hotel_slug/room/:room_slug`
   - **Response:**
+
     ```json
     {
-      "status": 200,
-      "data": {
-        "hotel_slug": "redisson-blu",
-        "room_image": "room1.jpg",
-        "room_title": "Deluxe Room",
-        "bedroom_count": 1
-      }
+      "hotel_slug": "redisson-blu",
+      "room_slug": "deluxe-room",
+      "room_image": "./assets/images/bedroom5.jpg",
+      "room_title": "Deluxe Room",
+      "bedroom_count": 1
     }
     ```
 
@@ -268,19 +307,20 @@ Follow these instructions to set up and run the project on your local machine.
   - **URL:** `PUT /hotel/:hotel_slug/room/:room_slug`
   - **Body:** (similar to create)
   - **Response:**
+
     ```json
     {
-      "status": 200,
       "message": "Room updated successfully"
     }
     ```
 
 - **Delete a room**
+
   - **URL:** `DELETE /hotel/:hotel_slug/room/:room_slug`
   - **Response:**
+
     ```json
     {
-      "status": 200,
       "message": "Room deleted successfully"
     }
     ```
@@ -293,7 +333,9 @@ Follow these instructions to set up and run the project on your local machine.
 CREATE TABLE hotels (
     slug VARCHAR(255) PRIMARY KEY,
     images TEXT[],
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR
+
+(255) NOT NULL,
     description TEXT,
     guest_count INTEGER,
     bedroom_count INTEGER,
@@ -320,4 +362,8 @@ CREATE TABLE rooms (
 
 ## Additional Information
 
-For any questions or issues, feel free to open an issue in the repository.
+- **Environment Variables:** Ensure you set up environment variables for database credentials and other sensitive information.
+- **Error Handling:** Proper error handling is implemented to ensure the API responds with appropriate error messages.
+- **Validation:** Input validation is performed to ensure data integrity.
+
+Feel free to customize this README file further based on your project's specific requirements and additional features.

@@ -1,4 +1,5 @@
 const pool = require("../db");
+const slugify = require("slugify");
 
 // Room Controllers
 const createRoom = async (req, res) => {
