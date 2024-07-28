@@ -33,8 +33,8 @@ Follow these instructions to set up and run the project on your local machine.
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/imrancse190/hotel-management-backend.git
-   cd hotel-management-backend
+   git clone https://github.com/imrancse190/Backend-ReactJS-NodeJS-Assignment
+   cd Backend-ReactJS-NodeJS-Assignment
    ```
 
 2. **Install dependencies:**
