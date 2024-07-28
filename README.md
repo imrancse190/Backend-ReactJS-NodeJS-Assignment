@@ -4,6 +4,8 @@ Here's a detailed README file for your Hotel Management System backend project:
 
 This project is a backend application for managing hotel and room details using Node.js, Express.js, and PostgreSQL.
 
+
+## [**🔗Frontend**](https://github.com/imrancse190/Frontend-ReactJS-NodeJS-Assignment)
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -19,6 +21,7 @@ This project is a backend application for managing hotel and room details using 
 ## Getting Started
 
 Follow these instructions to set up and run the project on your local machine.
+
 
 ## Prerequisites
 
@@ -97,7 +100,7 @@ Follow these instructions to set up and run the project on your local machine.
    npm start
    ```
 
-2. **The server will run on `http://localhost:3000`.**
+2. **The server will run on `http://localhost:3000`. In frontend data fetch from `http://localhost:3000` this url. If you change this url then make sure you also change in frontend config file base url.**
 
 ## API Endpoints
 
