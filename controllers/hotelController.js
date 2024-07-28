@@ -31,6 +31,10 @@ const createHotel = async (req, res) => {
       latitude,
       longitude,
     } = req.body;
+    if (!images || images.length < 4) {
+      return res.status(400).json({ error: "The images array must contain at least 4 images." });
+    }
+
 
     let slug = slugify(title, { lower: true, strict: true });
 
