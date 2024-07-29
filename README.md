@@ -1,5 +1,3 @@
-Here's a detailed README file for your Hotel Management System backend project:
-
 # Hotel Management System Backend
 
 This project is a backend application for managing hotel and room details using Node.js, Express.js, and PostgreSQL.
