@@ -12,6 +12,7 @@ This project is a backend application for managing hotel and room details using 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
+- [Demo data](#demo-data)
 - [API Endpoints](#api-endpoints)
   - [Hotel Endpoints](#hotel-endpoints)
   - [Room Endpoints](#room-endpoints)
@@ -101,9 +102,7 @@ Follow these instructions to set up and run the project on your local machine.
 
 2. **The server will run on `http://localhost:3000`. In frontend data fetch from `http://localhost:3000` this url. If you change this url then make sure you also change in frontend config file base url.**
 
-## API Endpoints
-
-### Hotel Endpoints
+## Demo data
 
 - **Demo data for hotels table**
 
@@ -113,6 +112,27 @@ Follow these instructions to set up and run the project on your local machine.
     ('ocean-view-resort', ARRAY['./assets/images/bedroom5.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom3.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom7.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom8.jpg', './assets/images/bedroom6.jpg'], 'Ocean View Resort', 'Relax and unwind at the Ocean View Resort. Enjoy stunning sea views, top-notch amenities, and unparalleled service.', 5, 3, 2, ARRAY['Free WiFi', 'Sea View', 'Spa'], 'Bob Johnson, +1098765432, bob.johnson@example.com', '789 Sea Rd, Beachside, Country', 36.1699, -115.1398),
     ('mountain-retreat', ARRAY['./assets/images/bedroom7.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom8.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom6.jpg', './assets/images/bedroom3.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom5.jpg'], 'Mountain Retreat', 'Escape to the tranquility of the mountains at our cozy Mountain Retreat. Perfect for nature lovers and adventure seekers.', 6, 4, 2, ARRAY['Free WiFi', 'Mountain View', 'Hiking Trails'], 'Charlie Brown, +154367890, charlie.brown@example.com', '101 Pine St, Mountainville, Country', 37.7749, -122.4194);
   ```
+
+- **Demo data for rooms table**
+
+  ```sql
+  INSERT INTO rooms (hotel_slug, room_slug, room_image, room_title, bedroom_count) VALUES
+
+  ('grand-plaza-hotel', 'grand-plaza-room-1', './assets/images/bedroom1.jpg', 'Deluxe Room', 1),
+  ('grand-plaza-hotel', 'grand-plaza-room-2', './assets/images/bedroom2.jpg', 'Executive Room', 1),
+
+  ('ocean-view-resort', 'ocean-view-room-1', './assets/images/bedroom3.jpg', 'Sea View Suite', 2),
+  ('ocean-view-resort', 'ocean-view-room-2', './assets/images/bedroom4.jpg', 'Family Suite', 3),
+  ('ocean-view-resort', 'ocean-view-room-3', './assets/images/bedroom5.jpg', 'Honeymoon Suite', 1),
+
+  ('mountain-retreat', 'mountain-retreat-room-1', './assets/images/bedroom6.jpg', 'Cabin Room', 1),
+  ('mountain-retreat', 'mountain-retreat-room-2', './assets/images/bedroom7.jpg', 'Luxury Cabin', 2),
+  ('mountain-retreat', 'mountain-retreat-room-3', './assets/images/bedroom8.jpg', 'Family Cabin', 3);
+  ```
+
+## API Endpoints
+
+### Hotel Endpoints
 
 - **Create a hotel**
 
@@ -251,23 +271,6 @@ Follow these instructions to set up and run the project on your local machine.
     ```
 
 ### Room Endpoints
-
-- **Demo data for rooms table**
-
-  ```sql
-  INSERT INTO rooms (hotel_slug, room_slug, room_image, room_title, bedroom_count) VALUES
-
-  ('grand-plaza-hotel', 'grand-plaza-room-1', './assets/images/bedroom1.jpg', 'Deluxe Room', 1),
-  ('grand-plaza-hotel', 'grand-plaza-room-2', './assets/images/bedroom2.jpg', 'Executive Room', 1),
-
-  ('ocean-view-resort', 'ocean-view-room-1', './assets/images/bedroom3.jpg', 'Sea View Suite', 2),
-  ('ocean-view-resort', 'ocean-view-room-2', './assets/images/bedroom4.jpg', 'Family Suite', 3),
-  ('ocean-view-resort', 'ocean-view-room-3', './assets/images/bedroom5.jpg', 'Honeymoon Suite', 1),
-
-  ('mountain-retreat', 'mountain-retreat-room-1', './assets/images/bedroom6.jpg', 'Cabin Room', 1),
-  ('mountain-retreat', 'mountain-retreat-room-2', './assets/images/bedroom7.jpg', 'Luxury Cabin', 2),
-  ('mountain-retreat', 'mountain-retreat-room-3', './assets/images/bedroom8.jpg', 'Family Cabin', 3);
-  ```
 
 - **Create a room**
 
