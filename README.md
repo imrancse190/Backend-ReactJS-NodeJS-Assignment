@@ -1,5 +1,7 @@
 # Hotel Management System Backend
 
+## Assignment on NodeJS, ReactJS, PostgresSQL
+
 This project is a backend application for managing hotel and room details using Node.js, Express.js, and PostgreSQL.
 
 ## [**Frontend Link🔗**](https://github.com/imrancse190/Frontend-ReactJS-NodeJS-Assignment)
@@ -102,6 +104,15 @@ Follow these instructions to set up and run the project on your local machine.
 ## API Endpoints
 
 ### Hotel Endpoints
+
+- **Demo data for hotels table**
+
+  ```sql
+  INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES
+    ('grand-plaza-hotel', ARRAY['./assets/images/bedroom3.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom5.jpg', './assets/images/bedroom6.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom7.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom8.jpg'], 'Grand Plaza Hotel', 'Experience the grandeur of the city with a luxurious stay at the Grand Plaza Hotel. Perfect for business and leisure travelers.', 3, 1, 1, ARRAY['Free WiFi', 'Breakfast included', 'Gym'], 'Alice Smith, +1987654321, alice.smith@example.com', '456 Elm St, Townsville, Country', 34.0522, -118.2437),
+    ('ocean-view-resort', ARRAY['./assets/images/bedroom5.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom3.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom7.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom8.jpg', './assets/images/bedroom6.jpg'], 'Ocean View Resort', 'Relax and unwind at the Ocean View Resort. Enjoy stunning sea views, top-notch amenities, and unparalleled service.', 5, 3, 2, ARRAY['Free WiFi', 'Sea View', 'Spa'], 'Bob Johnson, +1098765432, bob.johnson@example.com', '789 Sea Rd, Beachside, Country', 36.1699, -115.1398),
+    ('mountain-retreat', ARRAY['./assets/images/bedroom7.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom8.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom6.jpg', './assets/images/bedroom3.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom5.jpg'], 'Mountain Retreat', 'Escape to the tranquility of the mountains at our cozy Mountain Retreat. Perfect for nature lovers and adventure seekers.', 6, 4, 2, ARRAY['Free WiFi', 'Mountain View', 'Hiking Trails'], 'Charlie Brown, +154367890, charlie.brown@example.com', '101 Pine St, Mountainville, Country', 37.7749, -122.4194)
+  ```
 
 - **Create a hotel**
 
@@ -240,6 +251,23 @@ Follow these instructions to set up and run the project on your local machine.
     ```
 
 ### Room Endpoints
+
+- **Demo data for rooms table**
+
+  ```sql
+  INSERT INTO rooms (hotel_slug, room_slug, room_image, room_title, bedroom_count) VALUES
+
+  ('grand-plaza-hotel', 'grand-plaza-room-1', './assets/images/bedroom1.jpg', 'Deluxe Room', 1),
+  ('grand-plaza-hotel', 'grand-plaza-room-2', './assets/images/bedroom2.jpg', 'Executive Room', 1),
+
+  ('ocean-view-resort', 'ocean-view-room-1', './assets/images/bedroom3.jpg', 'Sea View Suite', 2),
+  ('ocean-view-resort', 'ocean-view-room-2', './assets/images/bedroom4.jpg', 'Family Suite', 3),
+  ('ocean-view-resort', 'ocean-view-room-3', './assets/images/bedroom5.jpg', 'Honeymoon Suite', 1),
+
+  ('mountain-retreat', 'mountain-retreat-room-1', './assets/images/bedroom6.jpg', 'Cabin Room', 1),
+  ('mountain-retreat', 'mountain-retreat-room-2', './assets/images/bedroom7.jpg', 'Luxury Cabin', 2),
+  ('mountain-retreat', 'mountain-retreat-room-3', './assets/images/bedroom8.jpg', 'Family Cabin', 3);
+  ```
 
 - **Create a room**
 

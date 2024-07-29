@@ -4,14 +4,20 @@ const slugify = require("slugify");
 // Room Controllers
 const createRoom = async (req, res) => {
   try {
-  const { hotel_slug } = req.params;
-  const { room_image, room_title, bedroom_count } = req.body;
+    const { hotel_slug: hotelSlugParam } = req.params;
+    const {
+      hotel_slug: hotelSlugBody,
+      room_image,
+      room_title,
+      bedroom_count,
+    } = req.body;
 
-  if (!hotel_slug || !room_image || !room_title || !bedroom_count) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
+    const hotel_slug = hotelSlugBody || hotelSlugParam;
 
-  
+    if (!hotel_slug || !room_image || !room_title || !bedroom_count) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
     let room_slug = slugify(room_title, { lower: true, strict: true });
 
     // Ensure the slug is unique
@@ -73,9 +79,9 @@ const getRoom = async (req, res) => {
 
 const updateRoom = async (req, res) => {
   try {
-  const { hotel_slug, room_slug } = req.params;
-  const { room_image, room_title, bedroom_count } = req.body;
-  
+    const { hotel_slug, room_slug } = req.params;
+    const { room_image, room_title, bedroom_count } = req.body;
+
     const query =
       "UPDATE rooms SET room_image = $1, room_title = $2, bedroom_count = $3 WHERE hotel_slug = $4 AND room_slug = $5";
     const values = [
