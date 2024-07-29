@@ -4,8 +4,8 @@ Here's a detailed README file for your Hotel Management System backend project:
 
 This project is a backend application for managing hotel and room details using Node.js, Express.js, and PostgreSQL.
 
-
 ## [**🔗Frontend**](https://github.com/imrancse190/Frontend-ReactJS-NodeJS-Assignment)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -21,7 +21,6 @@ This project is a backend application for managing hotel and room details using 
 ## Getting Started
 
 Follow these instructions to set up and run the project on your local machine.
-
 
 ## Prerequisites
 
@@ -276,7 +275,7 @@ Follow these instructions to set up and run the project on your local machine.
       {
         "hotel_slug": "redisson-blu",
         "room_slug": "deluxe-room",
-        "room_image": "r./assets/images/bedroom3.jpg",
+        "room_image": "./assets/images/bedroom3.jpg",
         "room_title": "Deluxe Room",
         "bedroom_count": 1
       },
