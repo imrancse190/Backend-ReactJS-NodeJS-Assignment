@@ -17,6 +17,7 @@ This project is a backend application for managing hotel and room details using 
   - [Hotel Endpoints](#hotel-endpoints)
   - [Room Endpoints](#room-endpoints)
 - [Database Schema](#database-schema)
+- [Dependencies](#dependencies)
 - [Additional Information](#additional-information)
 
 ## Getting Started
@@ -390,6 +391,16 @@ CREATE TABLE rooms (
     bedroom_count INTEGER
 );
 ```
+
+## Dependencies
+
+- **`body-parser`**: Middleware to parse request bodies.
+- **`dotenv`**: Module to load environment variables from a `.env` file.
+- **`express`**: Web framework for Node.js.
+- **`multer`**: Middleware for handling file uploads.
+- **`pg`**: PostgreSQL client for Node.js.
+- **`slugify`**: Utility to generate URL-friendly slugs from strings.
+- **`nodemon`**: Utility that monitors for file changes and automatically restarts the server.
 
 ## Additional Information
 
