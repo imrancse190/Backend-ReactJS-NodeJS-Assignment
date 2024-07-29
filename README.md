@@ -12,7 +12,7 @@ This project is a backend application for managing hotel and room details using 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [Demo data](#demo-data)
+- [Sample data](#sample-data)
 - [API Endpoints](#api-endpoints)
   - [Hotel Endpoints](#hotel-endpoints)
   - [Room Endpoints](#room-endpoints)
@@ -102,9 +102,9 @@ Follow these instructions to set up and run the project on your local machine.
 
 2. **The server will run on `http://localhost:3000`. In frontend data fetch from `http://localhost:3000` this url. If you change this url then make sure you also change in frontend config file base url.**
 
-## Demo data
+## Sample data
 
-- **Demo data for hotels table**
+- **Sample data for hotels table**
 
   ```sql
   INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES
@@ -113,7 +113,7 @@ Follow these instructions to set up and run the project on your local machine.
     ('mountain-retreat', ARRAY['./assets/images/bedroom7.jpg', './assets/images/bedroom4.jpg', './assets/images/bedroom8.jpg', './assets/images/bedroom1.jpg', './assets/images/bedroom2.jpg', './assets/images/bedroom6.jpg', './assets/images/bedroom3.jpg', './assets/images/bedroom9.jpg', './assets/images/bedroom5.jpg'], 'Mountain Retreat', 'Escape to the tranquility of the mountains at our cozy Mountain Retreat. Perfect for nature lovers and adventure seekers.', 6, 4, 2, ARRAY['Free WiFi', 'Mountain View', 'Hiking Trails'], 'Charlie Brown, +154367890, charlie.brown@example.com', '101 Pine St, Mountainville, Country', 37.7749, -122.4194);
   ```
 
-- **Demo data for rooms table**
+- **Sample data for rooms table**
 
   ```sql
   INSERT INTO rooms (hotel_slug, room_slug, room_image, room_title, bedroom_count) VALUES
