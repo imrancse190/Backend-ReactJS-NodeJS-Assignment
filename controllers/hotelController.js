@@ -31,10 +31,12 @@ const createHotel = async (req, res) => {
       latitude,
       longitude,
     } = req.body;
-    if (!images || images.length < 4) {
-      return res.status(400).json({ error: "The images array must contain at least 4 images." });
-    }
 
+    if (!images || images.length < 5) {
+      return res
+        .status(400)
+        .json({ error: "The images array must contain at least 5 images." });
+    }
 
     let slug = slugify(title, { lower: true, strict: true });
 
@@ -52,9 +54,8 @@ const createHotel = async (req, res) => {
       slug = `${slug}-${counter}`;
     }
 
-
     const query =
-      "INSERT INTO hotels (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)";
+      "INSERT INTO hotels  (slug, images, title, description, guest_count, bedroom_count, bathroom_count, amenities, host_information, address, latitude, longitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)";
     const values = [
       slug,
       images,
